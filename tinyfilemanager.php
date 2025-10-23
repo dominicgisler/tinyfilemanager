@@ -145,9 +145,13 @@ $ip_blacklist = array(
     '::'            // non-routable meta ipv6
 );
 
+if (!defined('FM_CONFIG_FILE')) {
+    define('FM_CONFIG_FILE', __DIR__ . '/config.php');
+}
+
 // if User has the external config file, try to use it to override the default config above [config.php]
 // sample config - https://tinyfilemanager.github.io/config-sample.txt
-$config_file = __DIR__ . '/config.php';
+$config_file = FM_CONFIG_FILE;
 if (is_readable($config_file)) {
     @include($config_file);
 }
