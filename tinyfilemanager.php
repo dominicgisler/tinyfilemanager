@@ -1,6 +1,6 @@
 <?php
 
-global $CONFIG, $external, $lang_list;
+global $CONFIG, $external, $lang_list, $cfg, $lang, $report_errors, $show_hidden_files, $hide_Cols, $theme, $callback, $path, $fileinfo, $temp_file, $path_display_mode, $root_path, $root_url, $config_file, $sticky_navbar, $editFile, $favicon_path;
 
 //Default Configuration
 $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":false,"theme":"light"}';
@@ -2703,7 +2703,7 @@ function fm_is_exclude_items($name, $path)
 function fm_get_translations($tr)
 {
     try {
-        $content = @file_get_contents('translation.json');
+        $content = @file_get_contents(__DIR__ . '/translation.json');
         if ($content !== FALSE) {
             $lng = json_decode($content, TRUE);
             global $lang_list;
