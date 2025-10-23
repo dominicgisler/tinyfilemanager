@@ -145,6 +145,11 @@ $ip_blacklist = array(
     '::'            // non-routable meta ipv6
 );
 
+// default config file
+if (is_readable(__DIR__ . '/config.php')) {
+    @include(__DIR__ . '/config.php');
+}
+
 if (!defined('FM_CONFIG_FILE')) {
     define('FM_CONFIG_FILE', __DIR__ . '/config.php');
 }
